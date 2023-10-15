@@ -5,9 +5,9 @@
   "tasks": [
     {
       "type": "cppbuild",
-      "label": "CSCM98: Build (Linux/WSL)",
+      "label": "CSCM98: Build (gcc)",
       "detail": "Compile the current C++ project.",
-      "command": "/usr/bin/g++",
+      "command": "g++",
       "args": [
         "-fdiagnostics-color=always",
         "-g",
