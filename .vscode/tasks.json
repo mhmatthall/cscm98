@@ -1,0 +1,41 @@
+{
+  // Standard build task for C++ projects in vscode.
+  // Requires g++/gdb.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "cppbuild",
+      "label": "CSCM98: Build (Linux/WSL)",
+      "detail": "Compile the current C++ project.",
+      "command": "/usr/bin/g++",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "utils.cpp",
+        "-pthread",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.o"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": ["CSCM98: Clean up output files"]
+    },
+    {
+      "type": "shell",
+      "label": "CSCM98: Clean up output files",
+      "command": "find",
+      "args": [".", "-name", "*.o", "-type", "f", "-delete"],
+      "windows": {
+        "command": "cmd.exe",
+        "args": ["/c", "del *.o /q /f /s"]
+      }
+    }
+  ]
+}

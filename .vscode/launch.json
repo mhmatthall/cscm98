@@ -1,0 +1,28 @@
+{
+    // Standard run & debug configuration for C++ projects in vscode.
+    // Requires g++/gdb.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "CSCM98: Run & Debug (Linux/WSL)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.o",
+            "preLaunchTask": "CSCM98: Build (Linux/WSL)",
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            // Below line is hack to hide weird debugger message in the terminal
+            // See: https://github.com/microsoft/vscode-cpptools/issues/3298#issuecomment-750385084
+            "miDebuggerArgs": "-q -ex quit; wait() { fg >/dev/null; }; /bin/gdb -q --interpreter=mi",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
