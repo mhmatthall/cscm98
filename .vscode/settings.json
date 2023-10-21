@@ -55,7 +55,8 @@
         "new": "cpp",
         "sstream": "cpp",
         "stdexcept": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "mutex": "cpp"
     },
     "cmake.configureOnOpen": true
 }
