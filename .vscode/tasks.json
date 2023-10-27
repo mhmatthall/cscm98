@@ -30,11 +30,9 @@
     {
       "type": "shell",
       "label": "CSCM98: Clean up output files",
-      "command": "find",
-      "args": [".", "-name", "*.o", "-type", "f", "-delete"],
+      "command": "find ./*.o -type f -delete || echo 0",
       "windows": {
-        "command": "cmd.exe",
-        "args": ["/c", "del *.o /q /f /s"]
+        "command": "cmd.exe /c del *.o /q /f /s",
       }
     }
   ]
