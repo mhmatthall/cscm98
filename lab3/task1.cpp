@@ -26,15 +26,15 @@ void print_account_balances()
 
     for (int i = 0; i < NUMBER_OF_THREADS; i++)
     {
-        printf("  Player %02d: £%d\n", i, bank_accounts[i]);
+        printf("  Player %02d: $%d\n", i, bank_accounts[i]);
         total_balance += bank_accounts[i];
     }
 
-    printf("Total bank balance: £%d\n", total_balance);
+    printf("Total bank balance: $%d\n", total_balance);
 }
 
 /*
-    Transfer £1 from one player to another
+    Transfer $1 from one player to another
     `from`: The player transferring money
     `to`: The player receiving money
 */
@@ -43,14 +43,14 @@ void transfer(int from, int to)
     // Guard: Can't transfer money to same account
     if (from == to)
     {
-        // printf("Player %02d (£%3d) tried to transfer to themself\n", from, bank_accounts[from]);
+        // printf("Player %02d ($%3d) tried to transfer to themself\n", from, bank_accounts[from]);
         return;
     }
 
     // Guard: Can't transfer money from bust players
     if (bank_accounts[from] <= 0 || bank_accounts[to] <= 0)
     {
-        printf("Error: Player %02d (£%3d) tried to transfer to bust Player %02d\n", from, bank_accounts[from], to);
+        printf("Error: Player %02d ($%3d) tried to transfer to bust Player %02d\n", from, bank_accounts[from], to);
         return;
     }
 
@@ -58,7 +58,7 @@ void transfer(int from, int to)
     bank_accounts[from]--;
     bank_accounts[to]++;
 
-    // printf("Player %02d (£%3d) transferred £1 to player %2d (£%3d)\n", from, bank_accounts[from], to, bank_accounts[to]);
+    // printf("Player %02d ($%3d) transferred $1 to player %2d ($%3d)\n", from, bank_accounts[from], to, bank_accounts[to]);
 }
 
 /*
@@ -70,7 +70,7 @@ void player(int player_number)
     // Keep playing while we have money and there are other players in the game
     while ((bank_accounts[player_number] > 0) && (players_in_game.size() > 1))
     {
-        // Transfer £1 to a random player
+        // Transfer $1 to a random player
         transfer(player_number, players_in_game.selectRandom());
 
         // Slow the program down by pausing the thread's execution for a few milliseconds
@@ -134,7 +134,7 @@ int main(int argc, const char *argv[])
     printf("Final player set: %s\n", players_in_game.toString().c_str());
     printf("Final bank balances:\n");
     print_account_balances();
-    printf("Expected total bank balance: £%d\n", EXPECTED_END_BALANCE);
+    printf("Expected total bank balance: $%d\n", EXPECTED_END_BALANCE);
 
     return 0;
 }
