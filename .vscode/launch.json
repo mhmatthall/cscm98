@@ -18,6 +18,9 @@
                 // See: https://github.com/microsoft/vscode-cpptools/issues/3298#issuecomment-750385084
                 "miDebuggerArgs": "-q -ex quit; wait() { fg >/dev/null; }; /bin/gdb -q --interpreter=mi",
             },
+            "osx": {
+                "MIMode": "lldb"
+            },
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
