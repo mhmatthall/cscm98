@@ -77,5 +77,6 @@
         "xstring": "cpp",
         "xtree": "cpp"
     },
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "C_Cpp.default.compilerPath": "/usr/bin/g++"
 }
