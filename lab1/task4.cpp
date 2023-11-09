@@ -7,7 +7,7 @@
 // - start: The term to start calculating from (default 1)
 // - result: A pointer to a variable to store the result in
 // - limit: The term to stop calculating at
-double leibnizSeries(int limit, double *result, int start = 0)
+void leibnizSeries(int limit, double *result, int start = 0)
 {
     double sum = 0.0;
 
@@ -25,9 +25,6 @@ double leibnizSeries(int limit, double *result, int start = 0)
     }
 
     *result = sum;
-
-    // Return 0 to indicate that function completed successfully
-    return 0;
 }
 
 int main(int argc, const char *argv[])

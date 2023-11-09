@@ -3,7 +3,7 @@
 *Last updated on 15th October 2023*
 
 ## Overview
-In this lab, we'll be setting up our computers for the lab tasks and getting familiar with C++, which is the programming language we'll be using for this module. We'll be looking at the basics of multithreading and how we can speed up programs by splitting up the work between processor threads.
+In this lab, you'll set up your computer to work with the lab tasks and get familiar with the basics of C++, which is the programming language you'll be using for these labs. You'll learn the basics of multithreading in C++ and how you can speed up programs by splitting up the work between processor threads.
 
 ## Setup
 Before we can run any of the code in this lab, we need to make sure our computer has the right software installed.
