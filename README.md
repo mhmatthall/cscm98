@@ -5,6 +5,8 @@ This repo contains a rewritten version of the CSC398/CSCM98 lab tasks for the `g
 - [Lab 1](./lab1) looks at getting C++ setup on your computer, and introduces you to what multithreading in C++ looks like.
 - [Lab 2](./lab2) is about race conditions and how to share data properly when working with concurrency.
 - [Lab 3](./lab3) is about applying our knowledge so far to fix an example money-passing game.
+- ~~[Lab 4](./lab4) is not yet implemented.~~
+- [Lab 5](./lab5) is about using processor-level SIMD instructions to improve performance.
 
 ## Setup
 ### On your own computer
