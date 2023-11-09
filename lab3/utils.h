@@ -31,9 +31,9 @@ public:
 
     void insert(int value);
     void remove(int value);
-    std::string toString();
+    std::string to_string();
     int size();
-    int selectRandom();
+    int select_random();
 };
 
 #endif // !CSCM98_UTILS_H

@@ -37,7 +37,7 @@ void SimpleSet::remove(int value)
 };
 
 // Return the set elements as a formatted string, e.g. `{ 1, 2, 3 }`
-std::string SimpleSet::toString()
+std::string SimpleSet::to_string()
 {
     std::string output = "{ ";
 
@@ -60,7 +60,7 @@ int SimpleSet::size()
 
 // Return a random number from the set
 // Derived from: https://stackoverflow.com/a/3052796
-int SimpleSet::selectRandom()
+int SimpleSet::select_random()
 {
     // Generate a random index number
     int index = rand() % set.size();

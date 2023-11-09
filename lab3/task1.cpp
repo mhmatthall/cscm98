@@ -71,7 +71,7 @@ void player(int player_number)
     while ((bank_accounts[player_number] > 0) && (players_in_game.size() > 1))
     {
         // Transfer $1 to a random player
-        transfer(player_number, players_in_game.selectRandom());
+        transfer(player_number, players_in_game.select_random());
 
         // Slow the program down by pausing the thread's execution for a few milliseconds
         // (our modern computers are a bit fast for this game to work properly otherwise)
@@ -104,7 +104,7 @@ int main(int argc, const char *argv[])
     }
 
     // Print the initial game state
-    printf("Initial player set: %s\n", players_in_game.toString().c_str());
+    printf("Initial player set: %s\n", players_in_game.to_string().c_str());
     printf("Initial bank balances:\n");
     print_account_balances();
 
@@ -131,7 +131,7 @@ int main(int argc, const char *argv[])
     printf("Game finished in %.1f seconds\n", (timer.measure() / 1000));
 
     // Print the final game state
-    printf("Final player set: %s\n", players_in_game.toString().c_str());
+    printf("Final player set: %s\n", players_in_game.to_string().c_str());
     printf("Final bank balances:\n");
     print_account_balances();
     printf("Expected total bank balance: $%d\n", EXPECTED_END_BALANCE);
