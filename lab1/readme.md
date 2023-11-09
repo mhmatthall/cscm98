@@ -11,7 +11,7 @@ Before we can run any of the code in this lab, we need to make sure our computer
 We will need:
 - Visual Studio Code (vscode) – an editor for writing code
 - `gcc` – a C++ compiler
-- `gdb` – a C++ debugger
+- `gdb` – a C++ debugger (or `lldb` if using macOS)
 
 > If you know what you're doing, you can use a different IDE, but the lab demonstrators will only be able to help with vscode.
 
@@ -30,7 +30,7 @@ As mentioned, we will be using the `gcc` compiler and `gdb` debugger. These are 
 How we do this is going to depend on what operating system your computer has. **Figure this out now!** You will have either Windows, macOS, or Linux. If you're not sure, ask one of the lab demonstrators.
 
 #### Windows
->*If you know what Windows Subsystem for Linux (WSL) is and already have it set up, then download [the 'WSL' vscode extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) and connect to WSL after opening the project folder. This should just let you use `gcc` and `gdb` without the need to install MSYS2 — run `gcc --version` in the vscode WSL terminal to check.*
+>*If you know what Windows Subsystem for Linux (WSL) is and already have it set up, then download [the 'WSL' vscode extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) and connect to WSL after opening the project folder. This should just let you use `gcc` and `gdb` without the need to install MSYS2 — run `gcc --version` in the vscode WSL terminal to check. If `gcc` doesn't work, then follow the Linux instructions in this guide to install it in your WSL environment.*
 
 We're going to install MSYS2, which contains what we need along with lots of other tools that we won't be using. This is a bit of a pain, but it's the easiest way to get everything working on Windows.
 
@@ -68,19 +68,26 @@ This should output something like:
 ```
 /Library/Developer/CommandLineTools
 ```
-Finally, check that `gcc` and `gdb` are installed by typing:
+Check that `gcc` installed correctly by typing:
 ```
 gcc --version
-
-gdb --version
 ```
-
-Each of these should output something like:
+This should output something like:
 ```
-Apple clang version 14.0.0 (clang-1400.0.29.202)
-Target: x86_64-apple-darwin21.6.0
+Apple clang version 15.0.0 (clang-1500.0.40.1)
+Target: arm64-apple-darwin22.6.0
 Thread model: posix
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+```
+
+Finally, check that `lldb` installed correctly by typing:
+```
+lldb --version
+```
+This should output something like:
+```
+lldb-1500.0.22.8
+Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
 ```
 
 #### Linux
@@ -99,42 +106,55 @@ gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
 Copyright (C) 2019 Free Software Foundation, Inc.
 ```
 
-If not, then you can install them using your package manager. For example, on Ubuntu you can run: `sudo apt install build-essential gdb` to install them.
+If not, use your distro's package manager to install them. For example, on Ubuntu you can install using `apt` as follows:
+```
+sudo apt install build-essential gdb
+```
 
-## Getting started with the lab
-You should now have everything needed to do run the lab tasks, so let's test it out.
+## Task 0: Opening the lab files
+Your computer should now be configured to run the lab tasks, so let's test it out.
 
 ### Downloading the lab tasks
-1. Go to the **'Files'** tab on [the Canvas page for this module](https://canvas.swansea.ac.uk/courses/44879/files/folder/labs). Click on the '**lab1**' folder, then click on `lab1.zip`, and finally click '**Download**' in the top-right. This will download a zip file containing all the files for this lab.
+1. If you haven't already, download this GitHub repo by clicking the green **'Code'** button on the main page, like this:
 
-2. Open up the zip file and extract the contents to somewhere you can find them. I recommend creating a '**CSC398 Labs**' folder in your uni OneDrive and extracting the files there.
+    ![A screenshot of this repo's GitHub page open and the Code options selected](./img/screen-6.png)
 
-3. Open vscode, then open up the '**CSC398 Labs**' folder. You can do this by clicking **'File' > 'Open Folder'** and selecting your lab folder. You should see something like this:
-![A screenshot of vscode showing the lab task open in the project explorer](./img/screen-2.png)
+    You can either **'Download ZIP'** or clone the repo to your computer. **If you download the repo as a ZIP file, make sure you extract the contents before you go any further.**
 
-### Running the code
-All the files we'll be working with are in the '`lab1`' folder - you can ignore the '`.vscode`' folder, that's all just config files for vscode.
+1. Open vscode, then open up the folder which contains the code you just downloaded. You can do this by clicking **'File' > 'Open Folder'** and selecting the relevant folder.
+   
+    You should see something like this:
+    ![A screenshot of vscode showing the lab task open in the project explorer](./img/screen-2.png)
 
-Now, click on the `task1.cpp` file to open it. You should see something like this:
-![A screenshot of vscode with the task1.cpp file open](./img/screen-3.png)
+## Task 1: Hello World!
+With everything downloaded, we can now try and run the code. All the files we'll be working with in this lab are in the '`lab1`' folder - you can ignore the '`.vscode`' folder, that's all just config files for vscode.
 
-This code is a simple program that makes the computer say **'Hello world!'** back to us. Click the play button in the top-right of the window to run the code. A box should appear to ask which 'debug configuration' to use, like this:
-![A screenshot of vscode showing the 'debug configuration' selection menu](./img/screen-4.png)
+1. Click on the `task1.cpp` file to open it.
 
-Select '**CSCM98: Run & Debug (gcc)**' and vscode should compile and run the code. You should see the terminal appear at the bottom, like this:
-![Alt text](./img/screen-5.png)
+    You should see something like this:
+    ![A screenshot of vscode with the task1.cpp file open](./img/screen-3.png)
 
-If the terminal didn't appear, click '**View' > 'Terminal**' in the top toolbar, or press `Ctrl+'`/ `Cmd+'`.
+    This code is a simple program that makes the computer say **'Hello world!'** back to us.
+   
+1. Click the play button in the top-right of the window to run the code.
+   
+    A box should appear to ask which 'debug configuration' to use, like this:
+    ![A screenshot of vscode showing the 'debug configuration' selection menu](./img/screen-4.png)
 
-If it all went well, like in the above screenshot, then you should see the phrase '**Hello world!**' has been printed in the terminal. If you don't see this, or you get any errors, then ask one of the lab demonstrators to have a look.
+1. Select '**CSCM98: Run & Debug (gcc)**' and vscode should compile and run the code.
+   
+    You should see the terminal appear at the bottom displaying the words **'Hello world!'**, like this:
+    ![A screenshot of vscode showing the integrated terminal open](./img/screen-5.png)
 
-## Next steps
-Congratulations for making it this far! Everything should now be set up, and thankfully you shouldn't have to do that again.
+    If the terminal didn't appear, click '**View' > 'Terminal**' in the top toolbar, or press `Ctrl+'`/ `Cmd+'`.
 
-Carry on with the lab tasks in the `lab1` folder:
-- `task1.cpp` is the simple program we just ran
-- `task2.cpp` looks at how to use threads in C++
-- `task3.cpp` demonstrates how multithreading can significantly speed up long computations
-- `task4.cpp` demonstrates multithreading with a real-world example
+    If you don't see the words **'Hello world!'** or you get any errors, then ask one of the lab demonstrators to have a look.
 
-If you get stuck, ask one of the lab demonstrators for help.
+## Task 2: Introduction to threads in C++
+Open up [`task2.cpp`](./task2.cpp). In this task, you are shown the basics of how to use threads in C++.
+
+## Task 3: Why we use multithreading
+Open up [`task3.cpp`](./task3.cpp). In this task, you are shown a demonstration of how multithreading can significantly speed up long computations.
+
+## Task 4: Real-world example
+Open up [`task4.cpp`](./task4.cpp). In this task, you are shown a demonstration of multithreading used in a real-world example of estimating pi using the [Leibniz formula](https://en.wikipedia.org/wiki/Leibniz_formula_for_π).
