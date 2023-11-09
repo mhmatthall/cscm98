@@ -17,10 +17,11 @@ int main(int argc, const char *argv[])
     // Sum the vectors
     __m128 sum = _mm_add_ps(vector_one, vector_two);
 
-    // Extract the results as four `float` values
-    float *results = (float *)&sum;
+    // Extract the results into a `float` array
+    float results[4];
+    _mm_storeu_ps(results, sum);
 
-    // Print the values
+    // Print the values (notice they are in reverse order!)
     printf("sum = {%.2f, %.2f, %.2f, %.2f}\n", results[0], results[1], results[2], results[3]);
 
     return 0;
