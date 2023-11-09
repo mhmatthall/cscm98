@@ -1,6 +1,6 @@
 # OS & Architectures: Lab 1
 
-*Last updated on 15th October 2023*
+*Last updated on 9th November 2023*
 
 ## Overview
 In this lab, you'll set up your computer to work with the lab tasks and get familiar with the basics of C++, which is the programming language you'll be using for these labs. You'll learn the basics of multithreading in C++ and how you can speed up programs by splitting up the work between processor threads.

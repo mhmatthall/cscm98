@@ -6,7 +6,7 @@
 #include "utils.h"  // For our Timer class
 
 // Example of a function that takes a long time to execute
-void reallyComplicatedTask(int task_id)
+void really_complicated_task(int task_id)
 {
     printf("  Executing really complicated task #%d...\n", task_id);
     sleep(2);
@@ -22,7 +22,7 @@ int main(int argc, const char *argv[])
     // Execute the really complicated task four times
     for (int i = 0; i < 4; i++)
     {
-        reallyComplicatedTask(i);
+        really_complicated_task(i);
     }
 
     // Stop the timer and print the result
@@ -39,7 +39,7 @@ int main(int argc, const char *argv[])
     // Then, execute the really complicated task four times in parallel threads
     for (int i = 0; i < 4; i++)
     {
-        threads[i] = std::thread(reallyComplicatedTask, i);
+        threads[i] = std::thread(really_complicated_task, i);
     }
 
     // Finally, join up the threads

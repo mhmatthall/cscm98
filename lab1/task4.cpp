@@ -7,7 +7,7 @@
 // - start: The term to start calculating from (default 1)
 // - result: A pointer to a variable to store the result in
 // - limit: The term to stop calculating at
-void leibnizSeries(int limit, double *result, int start = 0)
+void leibniz_series(int limit, double *result, int start = 0)
 {
     double sum = 0.0;
 
@@ -46,13 +46,13 @@ int main(int argc, const char *argv[])
     // multiple results from a function, which will be useful later.
 
     // Basically:
-    //      double pi = leibnizSeries(limit);
+    //      double pi = leibniz_series(limit);
     // is equivalent to:
     //      double pi = 0.0;
-    //      leibnizSeries(limit, &pi);
+    //      leibniz_series(limit, &pi);
 
     double pi = 0.0;
-    leibnizSeries(limit, &pi);
+    leibniz_series(limit, &pi);
 
     // Multiply the sum by 4 to get the final result, as per the formula
     pi *= 4;
@@ -79,7 +79,7 @@ int main(int argc, const char *argv[])
     for (int i = 0; i < 4; i++)
     {
         threads[i] = std::thread(
-            leibnizSeries,       // Function to execute
+            leibniz_series,       // Function to execute
             (i + 1) * limit / 4, // Limit term
             &pi_parts[i],        // Result
             i * limit / 4        // Start term

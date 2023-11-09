@@ -1,6 +1,6 @@
 #include <iostream>
 
-void sayHello()
+void say_hello()
 {
     printf("Hello world!\n");
 }
@@ -9,8 +9,8 @@ void sayHello()
 // It must have `argc` and `argv` as parameters, exactly as specified below.
 int main(int argc, const char *argv[])
 {
-    // Call the `sayHello` function defined above
-    sayHello();
+    // Call the `say_hello` function defined above
+    say_hello();
 
     // In C++, we return 0 to indicate that the program has finished successfully
     return 0;
