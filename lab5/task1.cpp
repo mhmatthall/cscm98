@@ -1,12 +1,6 @@
 #include <iostream>
 
-#if defined(__x86_64__) || defined(__x86_64) || defined(_X86_) || defined(__X86__) || defined(_M_X64) || defined(_M_AMD64) || defined(__amd64__) || defined(__amd64) || defined(i386) || defined(__i386__) || defined(__i386) || defined(_M_IX86)
-// If x86-based target architecture
-#include <xmmintrin.h>
-#else
-// If other target architecture (ARM)
-#include "sse2neon.h"
-#endif
+#include "utils.h"  // Imports our x86 intrinsics
 
 int main(int argc, const char *argv[])
 {
@@ -17,12 +11,12 @@ int main(int argc, const char *argv[])
     // Sum the vectors
     __m128 sum = _mm_add_ps(vector_one, vector_two);
 
-    // Extract the results into a `float` array
+    // Extract the results into an array of floats
     float results[4];
     _mm_storeu_ps(results, sum);
 
     // Print the values (notice they are in reverse order!)
-    printf("sum = {%.2f, %.2f, %.2f, %.2f}\n", results[0], results[1], results[2], results[3]);
+    printf("sum = { %.2f, %.2f, %.2f, %.2f }\n", results[0], results[1], results[2], results[3]);
 
     return 0;
 }
