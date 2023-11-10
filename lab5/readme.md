@@ -66,7 +66,7 @@ Open [`task1.cpp`](./task1.cpp). You are shown how to use SSE intrinsics to sum 
 Open [`task2.cpp`](./task2.cpp). You are given four nearly-completed functions for the basic add, subtract, multiply, divide operations. You need to fill in the gaps in each function body to use the correct SSE intrinsic, which you can look up using [Intel's Intrinsics Guide](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#techs=SSE_ALL).
 
 ## Task 3: Advanced operations
-Open [`task3.cpp`](./task3.cpp).
+Task 3 isn't finished yet.
 
 ## Task 4: A real-world example
 Open [`task4.cpp`](./task4.cpp). You are given an implementation of the [Leibniz formula](https://en.wikipedia.org/wiki/Leibniz_formula_for_π) for estimating Pi - just like a few weeks ago in [lab 1, task 4](../lab1/task4.cpp). You need to implement a version of the formula which is optimised using SIMD instructions. There is a blank function in which to do this.

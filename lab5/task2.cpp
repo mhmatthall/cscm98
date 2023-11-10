@@ -13,7 +13,7 @@ void add_floats_simd(__m128 a, __m128 b, float *results)
 
 void subtract_floats_simd(__m128 a, __m128 b, float *results)
 {
-    // Add the two vectors
+    // Subtract the two vectors
     __m128 sum = _mm_sub_ps(a, b);
 
     // Copy the sum to our results variable
