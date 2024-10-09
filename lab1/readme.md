@@ -30,7 +30,7 @@ In this lab, you will:
 
    <img src="./img/lab1-screen2.png" width=600 alt="A screenshot of vscode showing the 'debug configuration' selection menu" style="display: block; margin: 0 auto" />
 
-3. Select '**CSCM98: Run & Debug (gcc)**' and vscode should compile and run the code.
+   Select '**CSCM98: Run & Debug (gcc)**' and vscode should compile and run the code.
 
    You should see the terminal appear at the bottom displaying the words **'Hello world!'**, like this:
 
@@ -40,7 +40,7 @@ In this lab, you will:
 
    If you don't see the words **'Hello world!'** or you get any errors, then ask one of the lab demonstrators to have a look.
 
-4. That's it for Task 1! You've successfully run your first C++ program.
+3. That's it for Task 1! You've successfully run your first C++ program.
 
 ## Task 2: Introduction to threads in C++
 
