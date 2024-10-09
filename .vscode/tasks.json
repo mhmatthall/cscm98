@@ -17,16 +17,18 @@
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}.o"
       ],
-      "options": {
-        "cwd": "${fileDirname}"
-      },
-      "problemMatcher": ["$gcc"],
       "group": {
         "kind": "build",
         "isDefault": true
       },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
       "dependsOn": ["CSCM98: Clean up output files"],
+      "problemMatcher": ["$gcc"],
       "windows": {
+        // Might need to specify full command path (uncomment below if not working)
+        // "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
         // Output `.exe` files on Windows
         "args": [
           "-fdiagnostics-color=always",
@@ -36,6 +38,20 @@
           "-pthread",
           "-o",
           "${fileDirname}/${fileBasenameNoExtension}.exe"
+        ]
+      },
+      "osx": {
+        // C standard sometimes needs to be explicit on macOS clang
+        "args": [
+          "-fdiagnostics-color=always",
+          "-g",
+          "${file}",
+          "utils.cpp",
+          "-pthread",
+          "-std=c++17",
+          "-stdlib=libc++",
+          "-o",
+          "${fileDirname}/${fileBasenameNoExtension}.o"
         ]
       }
     },
