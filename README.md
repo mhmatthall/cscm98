@@ -68,7 +68,11 @@ Now, follow the guide below which corresponds to your operating system:
 <details>
 <summary>Installing gcc/gdb on Windows (click to read instructions)</summary>
 
-> [!IMPORTANT]
+<br />
+
+<!-- Alerts are currently broken in toggle sections, so I've manually styled it -->
+<!-- > [!IMPORTANT] -->
+> <img src="./img/important.svg" style="position: relative; left: -2px; top: 2px;" /> ${\color{#8957E5}{\textsf{Important}}}$
 >
 > **It is highly recommended that you simply use Windows Subsystem for Linux (WSL) rather than installing MSYS2!**
 >
@@ -109,7 +113,10 @@ This assumes you have WSL already setup and ready to go ([Microsoft guide to ins
 
 #### Windows: Install MSYS2
 
-> [!NOTE]
+<!-- Alerts are currently broken in toggle sections, so I've manually styled it -->
+<!-- > [!NOTE] -->
+> <img src="./img/note.svg" style="position: relative; left: -2px; top: 2px;" /> ${\color{#1F6FEB}{\textsf{Note}}}$
+> 
 > Skip this step if you have WSL setup and working in vscode
 
 We're going to install MSYS2, which is basically a big collection of handy tools which Windows doesn't come with. The installation process is a big fiddly, but it's the easiest way to get everything working on Windows.
