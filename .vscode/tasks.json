@@ -4,9 +4,9 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "type": "cppbuild",
+      "type": "shell",
       "label": "CSCM98: Build (gcc)",
-      "detail": "Compile the current C++ project.",
+      "detail": "Compile the current C++ project using g++.",
       "command": "g++",
       "args": [
         "-fdiagnostics-color=always",
@@ -25,14 +25,27 @@
         "kind": "build",
         "isDefault": true
       },
-      "dependsOn": ["CSCM98: Clean up output files"]
+      "dependsOn": ["CSCM98: Clean up output files"],
+      "windows": {
+        // Output `.exe` files on Windows
+        "args": [
+          "-fdiagnostics-color=always",
+          "-g",
+          "${file}",
+          "utils.cpp",
+          "-pthread",
+          "-o",
+          "${fileDirname}/${fileBasenameNoExtension}.exe"
+        ]
+      }
     },
     {
       "type": "shell",
       "label": "CSCM98: Clean up output files",
-      "command": "find ./*.o -type f -delete || echo 0",
+      "command": "find ${fileDirname}/*.o -type f -delete || echo 0",
       "windows": {
-        "command": "cmd.exe /c del *.o /q /f /s",
+        // Windows-compatible delete command
+        "command": "cmd.exe /c del *.exe /q /f /s"
       }
     }
   ]

@@ -1,36 +1,43 @@
 {
-    // Standard run & debug configuration for C++ projects in vscode.
-    // Requires g++/gdb.
-    "version": "0.2.0",
-    "configurations": [
+  // Standard run & debug configuration for C++ projects in vscode.
+  // Requires g++/gdb.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "CSCM98: Run & Debug (gcc)",
+      "type": "cppdbg",
+      "request": "launch",
+      "cwd": "${fileDirname}",
+      "program": "${fileDirname}/${fileBasenameNoExtension}.o",
+      "preLaunchTask": "CSCM98: Build (gcc)",
+      "externalConsole": false,
+      // Hide weird debug console
+      "internalConsoleOptions": "neverOpen",
+      "MIMode": "gdb",
+      "setupCommands": [
         {
-            "name": "CSCM98: Run & Debug (gcc)",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}.o",
-            "preLaunchTask": "CSCM98: Build (gcc)",
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "windows": {
-                "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb",
-            },
-            "linux": {
-                // Below line is hack to hide weird debugger message in the terminal
-                // See: https://github.com/microsoft/vscode-cpptools/issues/3298#issuecomment-750385084
-                "miDebuggerArgs": "-q -ex quit; wait() { fg >/dev/null; }; /bin/gdb -q --interpreter=mi",
-            },
-            "osx": {
-                "MIMode": "lldb"
-            },
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
         }
-    ]
+      ],
+      "windows": {
+        // Output a `.exe` instead of a `.o` on Windows
+        "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+        // If using your own Windows PC with MSYS2:
+        "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe"
+        // If using a University lab PC:
+        // "miDebuggerPath": "C:\\Programs\\mingw-w64\\mingw32\\bin\\gdb.exe"
+      },
+      "linux": {
+        // Below line is hack to hide weird debugger message in the terminal
+        // See: https://github.com/microsoft/vscode-cpptools/issues/3298#issuecomment-750385084
+        "miDebuggerArgs": "-q -ex quit; wait() { fg >/dev/null; }; /bin/gdb -q --interpreter=mi"
+      },
+      "osx": {
+        // Use lldb instead of gdb on macOS
+        "MIMode": "lldb"
+      }
+    }
+  ]
 }
